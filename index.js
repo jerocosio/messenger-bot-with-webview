@@ -111,7 +111,9 @@ function handlePostback(sender_psid, received_postback) {
     let payload = received_postback.payload;
     // Set the response based on the postback payload
     if (payload === 'start_chat') {
-        response = { "text": "Hola, bienvenido!" }
+        callSendAPI(sender_psid, { "text": "La COVID-19 es una enfermedad que proviene de una familia extensa de virus; los coronavirus." });
+        callSendAPI(sender_psid, { "text": "Este auto-test es una guía pero no sustituye un diagnóstico profesional.\n¡Comencemos!" });
+        callSendAPI(sender_psid, { "text": "¿En qué municipio vives actualmente?" });
     } else if (payload === 'no') {
         response = { "text": "Oops, try sending another image." }
     }
