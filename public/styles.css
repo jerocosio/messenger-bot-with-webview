@@ -1,0 +1,21 @@
+body{
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+.logo{
+    padding: 5px;
+}
+
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    background-color: #313945;
+}
+
+.title{
+    color: #c5c5c5;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+}

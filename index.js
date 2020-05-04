@@ -10,19 +10,21 @@ const
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
-app.use(express.static('public'));
+app.use(express.static("public"))
 
-app.get('/options', (req, res, next) => {
-    let referer = req.get('Referer');
-    if (referer) {
-        if (referer.indexOf('www.messenger.com') >= 0) {
-            res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.messenger.com/');
-        } else if (referer.indexOf('www.facebook.com') >= 0) {
-            res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.facebook.com/');
-        }
-        res.sendFile('public/options.html', { root: __dirname });
-    }
-});
+// app.get('/', (req, res, next) => {
+//     //res.send("<h1>Hello World!</h1>");
+//     res.sendFile('/public/', { root: __dirname });
+//     // let referer = req.get('Referer');
+//     // if (referer) {
+//     //     if (referer.indexOf('www.messenger.com') >= 0) {
+//     //         res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.messenger.com/');
+//     //     } else if (referer.indexOf('www.facebook.com') >= 0) {
+//     //         res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.facebook.com/');
+//     //     }
+//     //     res.sendFile('public/index.html', { root: __dirname });
+//     // }
+// });
 
 // Accepts POST requests at /webhook endpoint
 app.post('/webhook', (req, res) => {
@@ -137,7 +139,7 @@ function handlePostback(sender_psid, received_postback) {
                     "buttons": [
                         {
                             "type": "web_url",
-                            "url": "https://www.google.com.mx/",
+                            "url": "https://bot-el-salvador.herokuapp.com",
                             "webview_height_ratio": "compact",
                             "messenger_extensions": true,
                             "title": "🌡️ Empezar auto-test"
