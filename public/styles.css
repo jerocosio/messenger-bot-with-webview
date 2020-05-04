@@ -74,7 +74,7 @@ button{
     border: none;
 }
 
-button:hover{
+button:active{
     background-color: #38393a;
 }
 
