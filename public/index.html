@@ -1,27 +1,44 @@
 <html>
 
 <head>
-    <title>Test COVID-19 El Salvador</title>
+    <title>🌡️ Auto-Test COVID-19</title>
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
-    <div>
-        <div class="nav-bar">
-            <div class="logo">
-                <img src="logo-es.png" width="38px">
-            </div>
-            <div class="title">
+    <div id="app">
+        <div class="container">
+            <!-- <div class="nav-bar">
+                <div class="logo">
+                    <img src="logo-es.png" width="38px">
+                </div>
+                <div class="title">
+                    <p>
+                        Auto-test COVID-19
+                    </p>
+                </div>
+            </div> -->
+            <div class="question">
                 <p>
-                    Auto-test COVID-19
+                    ¿El Ministerio de Salud te ha asignado aislamiento domiciliar?
                 </p>
             </div>
-        </div>
-        <div>
+            <div class="answers">
+                <div>
+                    <button>
+                        ✅ Sí
+                    </button>
+                    <button>
+                        ❌ No
+                    </button>
+                </div>
 
+            </div>
         </div>
     </div>
+    <script src="index.js"></script>
 </body>
 
 </html>

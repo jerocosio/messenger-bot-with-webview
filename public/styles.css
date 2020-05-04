@@ -19,3 +19,47 @@ body{
     text-align: center;
     font-weight: 600;
 }
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.question{
+    flex: 1;
+    padding: 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.answers{
+    flex: 1;
+    padding: 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+p{
+    padding: 0px;
+    margin: 0px;
+    color: #464646;
+}
+
+button{
+    padding: 15px;
+    font-size: 20px;
+    margin: 0px 15px 0px 15px;
+    background-color: #666a71;
+    color: white;
+    border-radius: 6px;
+    border: none;
+}
+
+button:hover{
+    background-color: #38393a;
+}
