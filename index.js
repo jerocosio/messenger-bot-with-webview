@@ -128,8 +128,11 @@ function handlePostback(sender_psid, received_postback) {
     // Set the response based on the postback payload
     if (payload === 'start_chat') {
         callSendAPI(sender_psid, { "text": "La COVID-19 es una enfermedad que proviene de una familia extensa de virus; los coronavirus." });
+        sleep(200);
         callSendAPI(sender_psid, { "text": "Este auto-test es una guía pero no sustituye un diagnóstico profesional.\n\n¡Comencemos!" });
+        sleep(400);
         callSendAPI(sender_psid, { "text": "¿En qué municipio vives actualmente?" });
+        sleep(600);
         callSendAPI(sender_psid, {
             "attachment": {
                 "type": "template",
@@ -180,4 +183,12 @@ function callSendAPI(sender_psid, response) {
             console.error("Unable to send message:" + err);
         }
     });
+}
+
+function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+        currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
 }
