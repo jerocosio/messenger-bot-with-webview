@@ -112,8 +112,14 @@ function handlePostback(sender_psid, received_postback) {
     // Set the response based on the postback payload
     if (payload === 'start_chat') {
         callSendAPI(sender_psid, { "text": "La COVID-19 es una enfermedad que proviene de una familia extensa de virus; los coronavirus." });
-        callSendAPI(sender_psid, { "text": "Este auto-test es una guía pero no sustituye un diagnóstico profesional.\n¡Comencemos!" });
+        callSendAPI(sender_psid, { "text": "Este auto-test es una guía pero no sustituye un diagnóstico profesional.\n\n¡Comencemos!" });
         callSendAPI(sender_psid, { "text": "¿En qué municipio vives actualmente?" });
+        callSendAPI(sender_psid, {
+            "type": "web_url",
+            "url": "https://www.google.com.mx/",
+            "title": "<BUTTON_TEXT>",
+        }
+        );
     } else if (payload === 'no') {
         response = { "text": "Oops, try sending another image." }
     }
