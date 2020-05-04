@@ -10,31 +10,19 @@
 <body>
     <div id="app">
         <div class="container">
-            <!-- <div class="nav-bar">
-                <div class="logo">
-                    <img src="logo-es.png" width="38px">
-                </div>
-                <div class="title">
-                    <p>
-                        Auto-test COVID-19
-                    </p>
-                </div>
-            </div> -->
-            <div class="question">
+            <step-wizard>
+                <tab name="¿El Ministerio de Salud te ha asignado aislamiento domiciliar?" :selected="true"></tab>
+                <tab name="¿Tienes secreción nasal?"></tab>
+                <tab name="¿Tienes temperatura mayor a 38º C?"></tab>
+                <tab name="¿Tienes tos?"></tab>
+                <tab name="¿Tienes diarrea o malestar estomacal?"></tab>
+                <tab name="¿Tienes dificultad para respirar?"></tab>
+                <tab name=""></tab>
+            </step-wizard>
+            <div class="privacy">
                 <p>
-                    ¿El Ministerio de Salud te ha asignado aislamiento domiciliar?
+                    Encuentra nuestra <a href="privacidad.html">política de privacidad</a>.
                 </p>
-            </div>
-            <div class="answers">
-                <div>
-                    <button>
-                        ✅ Sí
-                    </button>
-                    <button>
-                        ❌ No
-                    </button>
-                </div>
-
             </div>
         </div>
     </div>

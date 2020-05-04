@@ -14,10 +14,24 @@ body{
 }
 
 .title{
-    color: #c5c5c5;
+    padding: 10px 0px;
     width: 100%;
     text-align: center;
     font-weight: 600;
+    display: flex;
+}
+
+.title p{
+    color: white;
+}
+
+.title a{
+    color: gray;
+    padding: 5px;
+}
+
+.title-text{
+    flex: 1;
 }
 
 .container{
@@ -62,4 +76,28 @@ button{
 
 button:hover{
     background-color: #38393a;
+}
+
+.privacy p{
+    text-align: center;
+    color: gray;
+    font-size: 8px;
+    padding: 2px;
+}
+
+.privacy a{
+    color: gray;
+}
+
+.privacy-complete{
+    padding: 6px;
+    font-size: 12px;
+}
+
+.result {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 14px;
+    font-size: 14px;
 }
