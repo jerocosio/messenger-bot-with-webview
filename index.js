@@ -115,9 +115,20 @@ function handlePostback(sender_psid, received_postback) {
         callSendAPI(sender_psid, { "text": "Este auto-test es una guía pero no sustituye un diagnóstico profesional.\n\n¡Comencemos!" });
         callSendAPI(sender_psid, { "text": "¿En qué municipio vives actualmente?" });
         callSendAPI(sender_psid, {
-            "type": "web_url",
-            "url": "https://www.google.com.mx/",
-            "title": "<BUTTON_TEXT>",
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "button",
+                    "text": "¿Listo para el auto-test?",
+                    "buttons": [
+                        {
+                            "type": "web_url",
+                            "url": "https://www.google.com.mx/",
+                            "title": "🌡️ Empezar auto-test"
+                        },
+                    ]
+                }
+            }
         }
         );
     } else if (payload === 'no') {
@@ -127,6 +138,8 @@ function handlePostback(sender_psid, received_postback) {
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
 }
+
+
 
 function callSendAPI(sender_psid, response) {
     // Construct the message body
