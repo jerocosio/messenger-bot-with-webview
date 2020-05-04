@@ -34,6 +34,7 @@ Vue.component('step-wizard', {
                             Llama al 📞 132 o consulta con tu médico si presentas síntomas respiratorios graves.
                         </p>
                     </div>
+                    <a href="https://www.messenger.com/closeWindow/?image_url=https://bot-el-salvador.herokuapp.com/ministerio-de-salud.png&display_text=Volviendo...">Volver al bot.</a>
                 </div>
             </div>
         </div>
