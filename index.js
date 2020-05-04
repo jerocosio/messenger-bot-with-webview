@@ -10,6 +10,20 @@ const
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
+app.use(express.static('public'));
+
+app.get('/options', (req, res, next) => {
+    let referer = req.get('Referer');
+    if (referer) {
+        if (referer.indexOf('www.messenger.com') >= 0) {
+            res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.messenger.com/');
+        } else if (referer.indexOf('www.facebook.com') >= 0) {
+            res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.facebook.com/');
+        }
+        res.sendFile('public/options.html', { root: __dirname });
+    }
+});
+
 // Accepts POST requests at /webhook endpoint
 app.post('/webhook', (req, res) => {
     // Parse the request body from the POST
@@ -125,6 +139,7 @@ function handlePostback(sender_psid, received_postback) {
                             "type": "web_url",
                             "url": "https://www.google.com.mx/",
                             "webview_height_ratio": "compact",
+                            "messenger_extensions": true,
                             "title": "🌡️ Empezar auto-test"
                         },
                     ]
