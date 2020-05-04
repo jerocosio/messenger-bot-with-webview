@@ -10,7 +10,19 @@ Vue.component('step-wizard', {
                 <div class="result" v-if="currentActive == totalTabs -1">
                     <div v-if="needsAttention == true">
                         <p>
-                            El otro...
+                        🔴  ADVERTENCIA DE RIESGO:
+                        </br>
+                        Es muy probable que estés contagiado de COVID-19. No te alarmes, llama al 📞 132 y uno de nuestros expertos te atenderá.
+                        </p>
+                        <p>
+                        🔹 Evita contacto con otras personas y auto-aíslate mientras se verifica tu estado.
+                        </br>
+                        🔹 Si vives con más personas, recuerda mantener distancia de al menos un metro y medio con ellos.
+                        </br>
+                        🙍‍♀️➖➖🙍‍♀️
+                        </p>
+                        <p>
+                            Llama al 📞 132 o consulta con tu médico si presentas síntomas respiratorios graves.
                         </p>
                     </div>
                     <div v-if="needsAttention == false">
