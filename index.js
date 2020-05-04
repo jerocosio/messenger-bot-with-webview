@@ -124,6 +124,7 @@ function handlePostback(sender_psid, received_postback) {
                         {
                             "type": "web_url",
                             "url": "https://www.google.com.mx/",
+                            "webview_height_ratio": "compact",
                             "title": "🌡️ Empezar auto-test"
                         },
                     ]
