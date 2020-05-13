@@ -8,8 +8,9 @@ const
     app = express().use(body_parser.json()); // creates express http server
 
 // Sets server port and logs message on success
-app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
+app.listen(process.env.PORT || 1337, () => console.log('webhook ready and  listening'));
 
+//We make the 'public' directory as static so we can serve the HTML for the webview from there
 app.use(express.static("public"))
 
 // Accepts POST requests at /webhook endpoint
@@ -42,7 +43,7 @@ app.post('/webhook', (req, res) => {
 // Accepts GET requests at the /webhook endpoint
 app.get('/webhook', (req, res) => {
     /** UPDATE YOUR VERIFY TOKEN **/
-    const VERIFY_TOKEN = "BOTELSALVADOR";
+    const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
     // Parse params from the webhook verification request
     let mode = req.query['hub.mode'];
     let token = req.query['hub.verify_token'];
