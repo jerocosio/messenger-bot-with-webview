@@ -12,20 +12,6 @@ app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
 app.use(express.static("public"))
 
-// app.get('/', (req, res, next) => {
-//     //res.send("<h1>Hello World!</h1>");
-//     res.sendFile('/public/', { root: __dirname });
-//     // let referer = req.get('Referer');
-//     // if (referer) {
-//     //     if (referer.indexOf('www.messenger.com') >= 0) {
-//     //         res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.messenger.com/');
-//     //     } else if (referer.indexOf('www.facebook.com') >= 0) {
-//     //         res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.facebook.com/');
-//     //     }
-//     //     res.sendFile('public/index.html', { root: __dirname });
-//     // }
-// });
-
 // Accepts POST requests at /webhook endpoint
 app.post('/webhook', (req, res) => {
     // Parse the request body from the POST
@@ -35,10 +21,8 @@ app.post('/webhook', (req, res) => {
         body.entry.forEach(function (entry) {
             // Gets the body of the webhook event
             let webhook_event = entry.messaging[0];
-            console.log(webhook_event);
             // Get the sender PSID
             let sender_psid = webhook_event.sender.id;
-            console.log('Sender ID: ' + sender_psid);
             // Check if the event is a message or postback and
             // pass the event to the appropriate handler function
             if (webhook_event.message) {
@@ -128,11 +112,8 @@ function handlePostback(sender_psid, received_postback) {
     // Set the response based on the postback payload
     if (payload === 'start_chat') {
         callSendAPI(sender_psid, { "text": "La COVID-19 es una enfermedad que proviene de una familia extensa de virus; los coronavirus." });
-        sleep(200);
         callSendAPI(sender_psid, { "text": "Este auto-test es una guía pero no sustituye un diagnóstico profesional.\n\n¡Comencemos!" });
-        sleep(400);
         callSendAPI(sender_psid, { "text": "¿En qué municipio vives actualmente?" });
-        sleep(600);
         callSendAPI(sender_psid, {
             "attachment": {
                 "type": "template",
@@ -172,7 +153,7 @@ function callSendAPI(sender_psid, response) {
     }
     // Send the HTTP request to the Messenger Platform
     request({
-        "uri": "https://graph.facebook.com/v2.6/me/messages",
+        "uri": "https://graph.facebook.com/v7.0/me/messages",
         "qs": { "access_token": PAGE_ACCESS_TOKEN },
         "method": "POST",
         "json": request_body
@@ -183,12 +164,4 @@ function callSendAPI(sender_psid, response) {
             console.error("Unable to send message:" + err);
         }
     });
-}
-
-function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-        currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
 }
