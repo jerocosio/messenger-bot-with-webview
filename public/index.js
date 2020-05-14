@@ -26,11 +26,11 @@ Vue.component('step-wizard', {
                         </p>
                         </br>
                         <p>
-                            We see that you had some issues with our services and we would like to .
+                            We see that you had some issues with our services 😐, please let us know your issue through Messenger so we can get it solved.
                         </p>
                     </div>
                     <div class="btn-conatiner">
-                        <a  href="https://www.messenger.com/closeWindow/?image_url=https://bot-el-salvador.herokuapp.com/ministerio-de-salud.png&display_text=Back to Messenger..." >
+                        <a  href="https://www.messenger.com/closeWindow/?image_url=https://messenger-bot-with-webview.herokuapp.com/images/preview-image.png&display_text=Back to Messenger..." >
                             <button class="button-back">Back to Messenger</button>
                         </a>
                     </div>

@@ -82,22 +82,21 @@ function handlePostback(sender_psid, received_postback) {
     let payload = received_postback.payload;
     // Set the response based on the postback payload
     if (payload === 'start_chat') {
-        callSendAPI(sender_psid, { "text": "La COVID-19 es una enfermedad que proviene de una familia extensa de virus; los coronavirus." });
-        callSendAPI(sender_psid, { "text": "Este auto-test es una guía pero no sustituye un diagnóstico profesional.\n\n¡Comencemos!" });
-        callSendAPI(sender_psid, { "text": "¿En qué municipio vives actualmente?" });
+        callSendAPI(sender_psid, { "text": "Thanks for visiting my store!" });
+        callSendAPI(sender_psid, { "text": "I would love to hear your feedback on your last order." });
         callSendAPI(sender_psid, {
             "attachment": {
                 "type": "template",
                 "payload": {
                     "template_type": "button",
-                    "text": "¿Listo para el auto-test?",
+                    "text": "Could you fill out this quiz? 🤔",
                     "buttons": [
                         {
                             "type": "web_url",
-                            "url": "https://bot-el-salvador.herokuapp.com",
+                            "url": "https://messenger-bot-with-webview.herokuapp.com/",
                             "webview_height_ratio": "compact",
                             "messenger_extensions": true,
-                            "title": "🌡️ Empezar auto-test"
+                            "title": "Start questions"
                         },
                     ]
                 }
