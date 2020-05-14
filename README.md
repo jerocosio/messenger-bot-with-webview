@@ -8,7 +8,7 @@ This example includes both a Messenger Experience based in the [getting started 
 The static site uses [Vue.js](https://vuejs.org/) to manage the states in the webview, but you could really use any other framework that can be served as a website.
 
 ## Installation
-To run this repository on your local machine you first need to download the repository, install the necesary dependencies with `npm` and then run `node index.js` , if everything's ok you should be able to access the site at `locallhost:1337` and the endpoint for the webhook that can be used for Messenger is located at `localhost:1337/webhook``
+To run this repository on your local machine you first need to download the repository, install the necesary dependencies with `npm` and then run `node index.js` , if everything's ok you should be able to access the site at `locallhost:1337` and the endpoint for the webhook that can be used for Messenger is located at `localhost:1337/webhook`
 
 ## Test it out
 
