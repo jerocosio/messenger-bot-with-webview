@@ -83,13 +83,12 @@ function handlePostback(sender_psid, received_postback) {
     // Set the response based on the postback payload
     if (payload === 'start_chat') {
         callSendAPI(sender_psid, { "text": "Thanks for visiting my store!" });
-        callSendAPI(sender_psid, { "text": "I would love to hear your feedback on your last order." });
         callSendAPI(sender_psid, {
             "attachment": {
                 "type": "template",
                 "payload": {
                     "template_type": "button",
-                    "text": "Could you fill out this quiz? 🤔",
+                    "text": "I would love to hear your feedback on your last order. Could you fill out this quiz? 🤔",
                     "buttons": [
                         {
                             "type": "web_url",
@@ -108,8 +107,6 @@ function handlePostback(sender_psid, received_postback) {
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
 }
-
-
 
 function callSendAPI(sender_psid, response) {
     // Construct the message body
