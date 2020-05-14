@@ -1,40 +1,39 @@
 Vue.component('step-wizard', {
-    template: `<div class="container">
-        <div class="tab-details question">
+    template: `
+    <div class="container">
+        <div class="tab-details question" v-if="!(currentActive == totalTabs -1)">
             <slot></slot>
         </div>
         <div class="answers">
             <div>
-                <button @click="changeTab(++currentActive,true)" v-if="currentActive != totalTabs -1">✅ Sí</button>
-                <button @click="changeTab(++currentActive,false)" v-if="currentActive != totalTabs -1">❌ No</button>
+                <div v-if="currentActive != totalTabs -1">
+                    <button @click="changeTab(++currentActive,true)" >👍 Yes</button>
+                    <button @click="changeTab(++currentActive,false)">👎 No</button>
+                </div>
                 <div class="result" v-if="currentActive == totalTabs -1">
-                    <div v-if="needsAttention == true">
+                    <div v-if="happyCustomer == true">
                         <p>
-                        🔴  ADVERTENCIA DE RIESGO:
-                        </br>
-                        Es muy probable que estés contagiado de COVID-19. No te alarmes, llama al 📞 132 y uno de nuestros expertos te atenderá.
+                            😊  Thanks for your feedback 🎉!
                         </p>
-                        <p>
-                        🔹 Evita contacto con otras personas y auto-aíslate mientras se verifica tu estado.
                         </br>
-                        🔹 Si vives con más personas, recuerda mantener distancia de al menos un metro y medio con ellos.
-                        </br>
-                        🙍‍♀️➖➖🙍‍♀️
-                        </p>
                         <p>
-                            Llama al 📞 132 o consulta con tu médico si presentas síntomas respiratorios graves.
+                            This information is really valuable for us, so thanks for getting the time to answer. In case you nees support we can continue talking through Messenger.
                         </p>
                     </div>
-                    <div v-if="needsAttention == false">
-                    <p>
-                    ⚠️ MANTENTE ALERTA: <br>
-                        Todo parece estar bien. Sin embargo, tienes un riesgo intermedio de una infección respiratoria.
-                        </p>
+                    <div v-if="happyCustomer == false">
                         <p>
-                            Llama al 📞 132 o consulta con tu médico si presentas síntomas respiratorios graves.
+                            😊  Thanks for your feedback 🎉!
+                        </p>
+                        </br>
+                        <p>
+                            We see that you had some issues with our services and we would like to .
                         </p>
                     </div>
-                    <a href="https://www.messenger.com/closeWindow/?image_url=https://bot-el-salvador.herokuapp.com/ministerio-de-salud.png&display_text=Volviendo...">Volver al bot.</a>
+                    <div class="btn-conatiner">
+                        <a  href="https://www.messenger.com/closeWindow/?image_url=https://bot-el-salvador.herokuapp.com/ministerio-de-salud.png&display_text=Back to Messenger..." >
+                            <button class="button-back">Back to Messenger</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -44,7 +43,7 @@ Vue.component('step-wizard', {
             tabs: [],
             currentActive: 0,
             totalTabs: 0,
-            needsAttention: false
+            happyCustomer: true
         }
     },
     created() {
@@ -55,8 +54,8 @@ Vue.component('step-wizard', {
     },
     methods: {
         changeTab(makeTabActive, answer) {
-            if (answer) {
-                this.needsAttention = true;
+            if (!answer && this.happyCustomer) {
+                this.happyCustomer = answer;
             }
             this.tabs.forEach(tab => {
                 tab.isActive = false;

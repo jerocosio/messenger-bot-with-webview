@@ -3,8 +3,12 @@ body{
     font-family: sans-serif;
 }
 
-.logo{
-    padding: 5px;
+.btn-conatiner{
+    margin-top: 15px;
+}
+
+.button-back{
+    background-color: #0084FF;
 }
 
 .nav-bar{
@@ -26,7 +30,6 @@ body{
 }
 
 .title a{
-    color: gray;
     padding: 5px;
 }
 
@@ -91,13 +94,5 @@ button:active{
 
 .privacy-complete{
     padding: 6px;
-    font-size: 12px;
-}
-
-.result {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 14px;
     font-size: 12px;
 }
